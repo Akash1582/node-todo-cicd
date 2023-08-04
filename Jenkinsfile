@@ -3,6 +3,9 @@ pipeline {
     environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerHub')
   }
+    options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
     stages{
         stage("Clone Code"){
             steps{
